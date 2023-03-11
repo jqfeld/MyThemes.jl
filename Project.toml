@@ -1,0 +1,7 @@
+name = "MyThemes"
+uuid = "5414799d-5985-4b34-b76e-509b56b95c0f"
+authors = ["Jan Kuhfeld <jan.kuhfeld@rub.de>"]
+version = "0.1.0"
+
+[deps]
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
