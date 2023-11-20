@@ -14,6 +14,15 @@ const unit_to_pt = Dict(
     :inch => 72,
 )
 
+
+"""
+    get_theme(;kwargs)
+
+Return `Theme` where the physical dimensions are defined by the `resolution` 
+keyword argument with the unit given by the `unit` keyword argument.
+If `fontstyle` is given as `:serif` (default) LaTeX fonts are used.
+Possible units are `:mm`, `:cm`, `:pt`, `:inch`.
+"""
 function get_theme(;
     unit=:mm,
     fontstyle=:serif,
@@ -27,8 +36,7 @@ function get_theme(;
         ygridvisible=false,
         xgridvisible=false,
     ),
-    kwargs...
-)
+    kwargs...)
 
     theme = Theme(;
         CairoMakie = (pt_per_unit = 1, ),
