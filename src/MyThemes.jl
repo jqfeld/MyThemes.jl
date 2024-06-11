@@ -26,7 +26,7 @@ Possible units are `:mm`, `:cm`, `:pt`, `:inch`.
 function get_theme(;
     unit=:mm,
     fontstyle=:serif,
-    resolution=(85, 60),
+    size=(85, 60),
     fontsize=12,
     figure_padding=15,
     Lines=(linewidth=1,),
@@ -41,7 +41,7 @@ function get_theme(;
     theme = Theme(;
         CairoMakie = (pt_per_unit = 1, ),
         GLMakie = (px_per_unit = 1/0.75,),
-        resolution = resolution .* unit_to_pt[unit],
+        size = resolution .* unit_to_pt[unit],
         fontsize,
         figure_padding,
         Lines,
@@ -110,7 +110,7 @@ nikita_theme = Theme(;
 
 
 thesis_theme = Theme(;
-    resolution=(600, 400),
+    size=(600, 400),
     figure_padding=20,
     fonts=(; regular="CMU Serif",),
     fontsize=18,
@@ -123,7 +123,7 @@ thesis_theme = Theme(;
 )
 
 DINA4_half_43 = Theme(;
-    resolution=(240, 170),
+    size=(240, 170),
     figure_padding=10,
     fonts=(; regular="CMU Serif",),
     fontsize=12,
@@ -140,7 +140,7 @@ DINA4_half_43 = Theme(;
 )
 
 DINA4_half_square = Theme(;
-    resolution=(240, 240),
+    size=(240, 240),
     figure_padding=10,
     fonts=(; regular="CMU Serif",),
     fontsize=12,
@@ -157,7 +157,7 @@ DINA4_half_square = Theme(;
 )
 
 DINA4_full_169 = Theme(;
-    resolution=(425, 240),
+    size=(425, 240),
     figure_padding=10,
     fonts=(; regular="CMU Serif",),
     fontsize=12,
@@ -176,7 +176,7 @@ DINA4_full_169 = Theme(;
 Theme to use if the image should span over the whole text in a DIN A4 document (with 30 mm) padding on both sides.
 """
 DINA4_full_32 = Theme(;
-    resolution=(425, 283),
+    size=(425, 283),
     figure_padding=15,
     fonts=(; regular="CMU Serif",),
     fontsize=12,
@@ -190,7 +190,7 @@ DINA4_full_32 = Theme(;
 )
 
 DINA4_full_square = Theme(;
-    resolution=(425, 425),
+    size=(425, 425),
     figure_padding=15,
     fonts=(; regular="CMU Serif",),
     fontsize=12,
@@ -204,7 +204,7 @@ DINA4_full_square = Theme(;
 )
 
 DINA4_full_page = Theme(;
-    resolution=(425, 500),
+    size=(425, 500),
     figure_padding=15,
     fonts=(; regular="CMU Serif", bold="CMU Serif"),
     fontsize=12,
