@@ -60,15 +60,14 @@ theme_template = Dict(
   :notes => (
     fontsize=13,
     Axis=(
-        ygridvisible=false,
-        xgridvisible=false,
+        ygridvisible=true,
+        xgridvisible=true,
     ), 
   )
 )
 
 
-
-# function get_theme(x; kwargs...) = get_theme(;theme_template[x], kwargs...)
+get_theme(x; kwargs...) = get_theme(; (theme_template[x])..., kwargs...)
 
 
 # Everything below is for compatibility with old scripts and should not be used
