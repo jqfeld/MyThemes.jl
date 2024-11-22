@@ -59,6 +59,7 @@ end
 theme_template = Dict(
   :notes => (
     fontsize=13,
+    size=(160, 100),
     Axis=(
         ygridvisible=true,
         xgridvisible=true,
