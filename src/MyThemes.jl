@@ -41,7 +41,7 @@ function get_theme(;
     theme = Theme(;
         CairoMakie = (pt_per_unit = 1, ),
         GLMakie = (px_per_unit = 1/0.75,),
-        size = resolution .* unit_to_pt[unit],
+        size = size .* unit_to_pt[unit],
         fontsize,
         figure_padding,
         Lines,
@@ -55,6 +55,20 @@ function get_theme(;
     end
     return theme
 end
+
+theme_template = Dict(
+  :notes => (
+    fontsize=13,
+    Axis=(
+        ygridvisible=false,
+        xgridvisible=false,
+    ), 
+  )
+)
+
+
+
+# function get_theme(x; kwargs...) = get_theme(;theme_template[x], kwargs...)
 
 
 # Everything below is for compatibility with old scripts and should not be used
