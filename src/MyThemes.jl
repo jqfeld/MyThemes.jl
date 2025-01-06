@@ -85,8 +85,8 @@ get_theme(::Slides; kwargs...) =
     Lines=(linewidth=1,),
     Scatter=(markersize=5,),
     Axis=(
-      ygridvisible=true,
-      xgridvisible=true,
+      ygridvisible=false,
+      xgridvisible=false,
     );
     kwargs...
   )
