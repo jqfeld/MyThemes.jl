@@ -72,6 +72,25 @@ get_theme(::Notes; kwargs...) = get_theme(
   kwargs...
 )
 
+struct Slides end
+get_theme(::Slides; kwargs...) =
+  get_theme(
+    # font = "Linux Libertine",
+    # fonts = (; regular = "Linux Libertine", ),
+    #
+    fontsize=12,
+    fontstyle=:sans,
+    size=(160, 110),
+    figure_padding=20,
+    Lines=(linewidth=1,),
+    Scatter=(markersize=5,),
+    Axis=(
+      ygridvisible=true,
+      xgridvisible=true,
+    );
+    kwargs...
+  )
+
 theme_template = Dict(
   :notes => (
     fontsize=11,
