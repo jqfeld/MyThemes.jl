@@ -56,8 +56,22 @@ function get_theme(;
   return theme
 end
 
-struct Notes end
+struct Paper end
+get_theme(::Paper; kwargs...) = get_theme(
+  fontsize=12,
+  fontstyle=:serif,
+  size=(90, 70),
+  figure_padding=20,
+  Lines=(linewidth=1,),
+  Scatter=(markersize=5,),
+  Axis=(
+    ygridvisible=true,
+    xgridvisible=true,
+  );
+  kwargs...
+)
 
+struct Notes end
 get_theme(::Notes; kwargs...) = get_theme(
   fontsize=11,
   fontstyle=:sans,
@@ -91,41 +105,19 @@ get_theme(::Slides; kwargs...) =
     kwargs...
   )
 
-theme_template = Dict(
-  :notes => (
-    fontsize=11,
-    fontstyle=:sans,
-    size=(160, 110),
-    figure_padding=20,
-    Lines=(linewidth=1,),
-    Scatter=(markersize=5,),
+struct Poster end
+get_theme(::Poster; kwargs...) =
+  get_theme(
+    fontsize=26,
+    size=(210*0.9, 148*0.9), 
+    figure_padding=(10, 28, 10, 10),
     Axis=(
-      ygridvisible=true,
-      xgridvisible=true,
-    ),
+      ygridvisible=false,
+      xgridvisible=false,
+    );
+    kwargs...
   )
-)
 
-
-get_theme(x; kwargs...) = get_theme(; (theme_template[x])..., kwargs...)
-
-
-# Everything below is for compatibility with old scripts and should not be used
-# aymore
-
-# Makie theme for reports
-report_theme = Theme(;
-  figure_padding=30,
-  fonts=(; regular="Computer Modern",),
-  fontsize=24,
-  Lines=(linewidth=3,),
-  Axis=(ygridvisible=true,
-    xgridvisible=true,),
-  Legend=(framevisible=false,)
-)
-
-
-export report_theme
 
 # Makie theme for paper
 paper_theme = Theme(;
