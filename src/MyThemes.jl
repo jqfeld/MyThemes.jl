@@ -58,15 +58,39 @@ end
 
 struct Paper end
 get_theme(::Paper; kwargs...) = get_theme(
-  fontsize=12,
+  fontsize=11,
   fontstyle=:serif,
   size=(90, 70),
-  figure_padding=20,
+  figure_padding=(10, 20, 10, 10),
   Lines=(linewidth=1,),
   Scatter=(markersize=5,),
+  Legend=(
+    labelsize=10,
+    framevisible=false,
+  ),
   Axis=(
-    ygridvisible=true,
-    xgridvisible=true,
+    ygridvisible=false,
+    xgridvisible=false,
+    xautolimitmargin=(0, 0),
+  );
+  kwargs...
+)
+struct PaperTwoColumn end
+get_theme(::PaperTwoColumn; kwargs...) = get_theme(
+  fontsize=11,
+  fontstyle=:serif,
+  size=(2 * 90, 70),
+  figure_padding=(10, 20, 10, 10),
+  Lines=(linewidth=1,),
+  Scatter=(markersize=5,),
+  Legend=(
+    labelsize=10,
+    framevisible=false,
+  ),
+  Axis=(
+    ygridvisible=false,
+    xgridvisible=false,
+    xautolimitmargin=(0, 0),
   );
   kwargs...
 )
@@ -109,7 +133,7 @@ struct Poster end
 get_theme(::Poster; kwargs...) =
   get_theme(
     fontsize=26,
-    size=(210*0.9, 148*0.9), 
+    size=(210 * 0.9, 148 * 0.9),
     figure_padding=(10, 28, 10, 10),
     Axis=(
       ygridvisible=false,
